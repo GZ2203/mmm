@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青蛙过河</title>
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+	<canvas id="myCanvas" width="800" height="600"></canvas>
+	<div id="app">
+		请输入图中的字母
+		<br>
+		<input type="text" @click="show()" v-model="userString" @keyup="show()" id="" value=""/>
+		<br>跳跃次数：{{pace}} &nbsp;&nbsp;&nbsp;&nbsp; 
+		<br>
+		得分：{{grade}}
+	</div>
+	<script type="text/javascript">
+		let v = new Vue({
+			el: "#app",
+			data: {
+				userString: "",
+				count: 0, 
+				pace: 0, //跳跃次数
+				grade: 0,  //得分
+			},
+			methods: {
+				show() {
+					if(this.count === 0 && this.userString === "") {
+						// 加载背景
+						let canvas=document.getElementById("myCanvas");
+						let context = canvas.getContext("2d");
+						let img_background=new Image();
+						img_background.src="img/2.gif";
+						img_background.onload=function(){
+							context.drawImage(img_background,0,0);
+						}
+						// 显示青蛙
+						let img_frog=new Image();
+						img_frog.src="img/1.gif";
+						img_frog.onload=function(){
+							context.drawImage(img_frog,400,400);
+						}
+					}
+					//条件判断
+					if (this.count === 0 && this.userString === "hello") {
+						let canvas = document.getElementById("myCanvas");
+						let context = canvas.getContext('2d');
+						let img_background = new Image();
+						img_background.src = "img/2.gif";
+						img_background.onload = function () {
+							context.drawImage(img_background, 0, 0);
+						}
+						let img_frog = new Image();
+						img_frog.src = "img/1.gif";
+						img_frog.onload = function () {
+							context.drawImage(img_frog,250,260);
+						}
+						this.count++;
+						this.pace++;
+						this.grade++;  
+						this.userString = "";
+					}
+					if (this.count === 1 && this.userString === "world") {
+						let canvas = document.getElementById("myCanvas");
+						let context = canvas.getContext('2d');
+						let img_background = new Image();
+						img_background.src = "img/2.gif";
+						img_background.onload = function () {
+							context.drawImage(img_background, 0, 0);
+						}
+						let img_frog = new Image();
+						img_frog.src = "img/1.gif";
+						img_frog.onload = function () {
+							context.drawImage(img_frog,430,160);
+						}
+						this.count++;
+						this.pace++;
+						this.grade++;
+						this.userString = "";
+					}
+					if (this.count === 2 && this.userString === "hi") {
+						let canvas = document.getElementById("myCanvas");
+						let context = canvas.getContext('2d');
+						let img_background = new Image();
+						img_background.src = "img/2.gif";
+						img_background.onload = function () {
+							context.drawImage(img_background, 0, 0);
+						}
+						let img_frog = new Image();
+						img_frog.src = "img/1.gif";
+						img_frog.onload = function () {
+							context.drawImage(img_frog, 350, 60);
+						}
+						this.count++;
+						this.pace++;
+						this.grade++;
+						this.userString = "";
+						// return;
+					}
+				},
+			},
+			
+			updated() {
+				if (this.count === 3) {
+					alert("游戏通关！");
+				}
+			}
+		})
+		</script>
+	</body>
+<html>

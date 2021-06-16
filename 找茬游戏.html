@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			
+			<img src="img/1.jpg" @click="myFunction()" ><br />
+			有{{Num}}处不同点,总分为{{Num}}
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data:{
+					Num:0,
+					t:'',
+					t2:'',
+					t3:'',
+					t4:'',
+					t5:'',
+				},
+				methods:{
+					myFunction(){
+						console.log("x,y="+event.clientX+","+event.clientY)
+							if(event.clientX>268&&event.clientX<302&&event.clientY>135&&event.clientY<173){
+								if(v.t==0){
+								v.Num++
+								}
+								v.t++		
+							}
+							if(event.clientX>356&&event.clientX<395&&event.clientY>240&&event.clientY<262){
+								if(v.t2==0){
+								v.Num++
+								}
+								v.t2++		
+							}
+							if(event.clientX>261&&event.clientX<278&&event.clientY>283&&event.clientY<304){
+								if(v.t3==0){
+								v.Num++
+								}
+								v.t3++		
+							}
+							if(event.clientX>329&&event.clientX<353&&event.clientY>187&&event.clientY<211){
+								if(v.t4==0){
+								v.Num++
+								}
+								v.t4++		
+							}
+							if(event.clientX>275&&event.clientX<292&&event.clientY>233&&event.clientY<250){
+								if(v.t5==0){
+								v.Num++
+								}
+								v.t5++		
+							}
+							if(v.Num==5){
+								alert("游戏通过")
+							}
+			
+					}
+					
+				}
+			})
+		</script>
+	</body>
+</html>
+
